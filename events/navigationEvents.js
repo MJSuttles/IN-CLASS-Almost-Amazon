@@ -1,6 +1,8 @@
+/* eslint-disable import/no-duplicates */
 import { signOut } from '../utils/auth';
 import { showBooks } from '../pages/books';
 import { getBooks } from '../api/bookData';
+import { booksOnSale } from '../api/bookData';
 
 // navigation events
 const navigationEvents = () => {
@@ -10,13 +12,12 @@ const navigationEvents = () => {
 
   // TODO: BOOKS ON SALE
   document.querySelector('#sale-books').addEventListener('click', () => {
-    console.warn('CLICKED SALE BOOKS');
+    booksOnSale().then(showBooks);
   });
 
   // TODO: ALL BOOKS
   document.querySelector('#all-books').addEventListener('click', () => {
     getBooks().then(showBooks);
-    console.warn('CLICKED ALL BOOKS');
   });
 
   // FIXME: STUDENTS Create an event listener for the Authors
