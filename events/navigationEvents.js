@@ -1,4 +1,6 @@
 import { signOut } from '../utils/auth';
+import { showBooks } from '../pages/books';
+import { getBooks } from '../api/bookData';
 
 // navigation events
 const navigationEvents = () => {
@@ -13,6 +15,7 @@ const navigationEvents = () => {
 
   // TODO: ALL BOOKS
   document.querySelector('#all-books').addEventListener('click', () => {
+    getBooks().then(showBooks);
     console.warn('CLICKED ALL BOOKS');
   });
 
