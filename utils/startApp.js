@@ -4,6 +4,8 @@ import navBar from '../components/shared/navBar';
 import domEvents from '../events/domEvents';
 import formEvents from '../events/formEvents';
 import navigationEvents from '../events/navigationEvents';
+import { showBooks } from '../pages/books';
+import { getBooks } from '../api/bookData';
 
 const startApp = () => {
   domBuilder(); // BUILD THE DOM
@@ -14,6 +16,7 @@ const startApp = () => {
   navigationEvents(); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
 
   // TODO: Put all books on the DOM on App load
+  getBooks().then((books) => showBooks(books));
 };
 
 export default startApp;
