@@ -3,6 +3,7 @@ import { signOut } from '../utils/auth';
 import { showBooks } from '../pages/books';
 import { getBooks } from '../api/bookData';
 import { booksOnSale } from '../api/bookData';
+// import { favoriteAuthors } from '../api/authorData';
 
 // navigation events
 const navigationEvents = () => {
@@ -12,8 +13,11 @@ const navigationEvents = () => {
 
   // TODO: BOOKS ON SALE
   document.querySelector('#sale-books').addEventListener('click', () => {
-    booksOnSale().then(showBooks);
+    // booksOnSale().then((books) => (showBooks(books)));
+    booksOnSale.then((books) => console.warn(books));
   });
+
+  // document.querySelector('#');
 
   // TODO: ALL BOOKS
   document.querySelector('#all-books').addEventListener('click', () => {
