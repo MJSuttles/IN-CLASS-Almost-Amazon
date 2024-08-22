@@ -4,6 +4,7 @@ import { showBooks } from '../pages/books';
 import { getBooks } from '../api/bookData';
 import { booksOnSale } from '../api/bookData';
 // import { favoriteAuthors } from '../api/authorData';
+import { getAuthors } from '../api/authorData';
 
 // navigation events
 const navigationEvents = () => {
@@ -14,7 +15,7 @@ const navigationEvents = () => {
   // TODO: BOOKS ON SALE
   document.querySelector('#sale-books').addEventListener('click', () => {
     // booksOnSale().then((books) => (showBooks(books)));
-    booksOnSale.then((books) => console.warn(books));
+    booksOnSale().then(showBooks);
   });
 
   // document.querySelector('#');
@@ -23,6 +24,9 @@ const navigationEvents = () => {
   document.querySelector('#all-books').addEventListener('click', () => {
     getBooks().then(showBooks);
   });
+
+  // ALL AUTHORS
+  // document.querySelector('')
 
   // FIXME: STUDENTS Create an event listener for the Authors
   // 1. When a user clicks the authors link, make a call to firebase to get all authors
