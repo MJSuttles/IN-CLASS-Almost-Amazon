@@ -13,7 +13,8 @@ const navigationEvents = () => {
 
   // TODO: BOOKS ON SALE
   document.querySelector('#sale-books').addEventListener('click', () => {
-    booksOnSale().then((books) => (showBooks(books)));
+    // booksOnSale().then((books) => (showBooks(books)));
+    booksOnSale.then((books) => console.warn(books));
   });
 
   // document.querySelector('#');
