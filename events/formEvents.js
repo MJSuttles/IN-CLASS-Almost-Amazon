@@ -74,7 +74,9 @@ const formEvents = () => {
       };
       updateAuthor(payload).then(() => {
         getAuthors().then(showAuthors);
-      })
+      });
     }
+  });
+};
 
-    export default formEvents;
+export default formEvents;

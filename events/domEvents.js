@@ -60,5 +60,7 @@ const domEvents = () => {
 
       getSingleAuthor(firebaseKey).then((bookObj) => addAuthorForm(bookObj));
     }
+  });
+};
 
-    export default domEvents;
+export default domEvents;
