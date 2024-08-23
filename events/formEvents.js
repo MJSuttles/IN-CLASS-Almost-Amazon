@@ -64,7 +64,17 @@ const formEvents = () => {
     }
 
     // FIXME:ADD CLICK EVENT FOR EDITING AN AUTHOR
-  });
-};
+    if (e.target.id.includes('update-author')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        first_name: document.querySelector('#first_name').value,
+        last_name: document.querySelector('#last_name').value,
+        email: document.querySelector('#email').value,
+        firebaseKey,
+      };
+      updateAuthor(payload).then(() => {
+        getAuthors().then(showAuthors);
+      })
+    }
 
-export default formEvents;
+    export default formEvents;
