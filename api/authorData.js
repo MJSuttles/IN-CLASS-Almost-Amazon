@@ -30,7 +30,7 @@ const favoriteAuthors = () => new Promise((resolve, reject) => {
 
 // FIXME: CREATE AUTHOR
 const createAuthor = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/books.json`, {
+  fetch(`${endpoint}/authors.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ const deleteSingleAuthor = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/authors/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
-      'Content-Type': 'applicatino/json',
+      'Content-Type': 'application/json',
     },
   })
     .then((response) => response.json())
