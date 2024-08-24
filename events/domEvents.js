@@ -8,6 +8,8 @@ import addAuthorForm from '../components/forms/addAuthorForm';
 import { getSingleAuthor } from '../api/authorData';
 import { showAuthors } from '../pages/authors';
 import { deleteSingleAuthor, getAuthors } from '../api/authorData';
+import getBookDetails from '../api/mergedData';
+import viewBook from '../pages/viewBook';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
