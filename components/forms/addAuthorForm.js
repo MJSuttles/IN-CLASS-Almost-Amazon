@@ -1,7 +1,7 @@
 import clearDom from '../../utils/clearDom';
 import renderToDOM from '../../utils/renderToDom';
 
-const addAuthorForm = () => {
+const addAuthorForm = (item = {}) => {
   clearDom();
   const domString = `
     <form id="submit-author" class="mb-4">
@@ -16,7 +16,8 @@ const addAuthorForm = () => {
       <div class="form-group">
         <label for="title">Email</label>
         <input type="email" class="form-control" id="email" aria-describedby="Email" placeholder="Enter Email" required>
-      </div>
+        <p class="card-text bold">${item.favorite ? '<span class="badge bg-danger"><i class="fa fa-heart" aria-hidden="true"></i></span>' : ''}</p>
+        </div>
       <button type="submit" class="btn btn-primary mt-3">Submit Author</button>
     </form>`;
 
