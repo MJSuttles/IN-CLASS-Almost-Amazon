@@ -5,11 +5,9 @@ import { showBooks } from '../pages/books';
 import addBookForm from '../components/forms/addBookForm';
 import { getSingleBook } from '../api/bookData';
 import addAuthorForm from '../components/forms/addAuthorForm';
-import { getAuthors, getSingleAuthor } from '../api/authorData';
-import getBookDetails from '../api/mergedData';
-import viewBook from '../pages/viewBook';
-import { deleteSingleAuthor } from '../api/authorData';
+import { getSingleAuthor } from '../api/authorData';
 import { showAuthors } from '../pages/authors';
+import { deleteSingleAuthor, getAuthors } from '../api/authorData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
