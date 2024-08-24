@@ -2,7 +2,7 @@ import client from '../utils/client';
 
 const endpoint = client.databaseURL;
 
-// FIXME:  GET ALL AUTHORS
+// FIXME:  GET ALL AUTHORS - FIXED
 const getAuthors = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/authors.json`, {
     method: 'GET',
@@ -15,7 +15,7 @@ const getAuthors = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: FILTER FAVORITE AUTHORS
+// TODO: FILTER FAVORITE AUTHORS - FIXED
 const favoriteAuthors = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/authors.json?orderBy="favorite"&equalTo=true`, {
     method: 'GET',
@@ -28,9 +28,9 @@ const favoriteAuthors = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// FIXME: CREATE AUTHOR
+// FIXME: CREATE AUTHOR - FIXED
 const createAuthor = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/books.json`, {
+  fetch(`${endpoint}/authors.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ const createAuthor = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// FIXME: GET SINGLE AUTHOR
+// FIXME: GET SINGLE AUTHOR - FIXED
 const getSingleAuthor = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/authors/${firebaseKey}.json`, {
     method: 'GET',
@@ -55,7 +55,7 @@ const getSingleAuthor = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// FIXME: DELETE AUTHOR
+// FIXME: DELETE AUTHOR - FIXED
 const deleteSingleAuthor = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/authors/${firebaseKey}.json`, {
     method: 'DELETE',
@@ -68,7 +68,7 @@ const deleteSingleAuthor = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// FIXME: UPDATE AUTHOR
+// FIXME: UPDATE AUTHOR - FIXED
 const updateAuthor = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/authors/${payload.firebaseKey}.json`, {
     method: 'PATCH',

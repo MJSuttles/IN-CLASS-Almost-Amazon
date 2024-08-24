@@ -63,7 +63,7 @@ const formEvents = () => {
       });
     }
 
-    // FIXME:ADD CLICK EVENT FOR EDITING AN AUTHOR
+    // FIXME:ADD CLICK EVENT FOR EDITING AN AUTHOR - FIXED
     if (e.target.id.includes('update-author')) {
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
