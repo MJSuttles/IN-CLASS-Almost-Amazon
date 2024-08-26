@@ -28,6 +28,11 @@ const navigationEvents = () => {
     getBooks().then(showBooks);
   });
 
+  // // TODO: CREATE CLICK EVENT TO CAPTURE THE CLICK ON THE 'VIEW-AUTHOR-BTN' THAT IS IN THE AUTHOR CARD
+  // document.querySelector('view-author-btn').addEventListener('click', () => {
+  //   getAuthors().then(showAuthors);
+  // });
+
   // ALL AUTHORS
   // FIXME: STUDENTS Create an event listener for the Authors
   // 1. When a user clicks the authors link, make a call to firebase to get all authors

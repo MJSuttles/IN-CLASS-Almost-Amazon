@@ -5,10 +5,10 @@ import { showBooks } from '../pages/books';
 import addBookForm from '../components/forms/addBookForm';
 import { getSingleBook } from '../api/bookData';
 import addAuthorForm from '../components/forms/addAuthorForm';
-import { getSingleAuthor } from '../api/authorData';
+import { getAuthorBooks, getSingleAuthor } from '../api/authorData';
 import { showAuthors } from '../pages/authors';
-import { deleteSingleAuthor, getAuthors } from '../api/authorData';
-import getBookDetails from '../api/mergedData';
+import { getAuthors } from '../api/authorData';
+import { getBookDetails, deleteAuthorBooksRelationship } from '../api/mergedData';
 import viewBook from '../pages/viewBook';
 
 const domEvents = () => {
@@ -52,10 +52,17 @@ const domEvents = () => {
         console.warn('DELETE AUTHOR', e.target.id);
         const [, firebaseKey] = e.target.id.split('--');
 
-        deleteSingleAuthor(firebaseKey).then(() => {
+        deleteAuthorBooksRelationship(firebaseKey).then(() => {
           getAuthors().then(showAuthors);
         });
       }
+    }
+
+    // TODO: CREATE CLICK EVENT TO CAPTURE THE CLICK ON THE 'VIEW-AUTHOR-BTN' THAT IS IN THE AUTHOR CARD
+    if (e.target.id.includes('view-author-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+
+      getAuthorBooks(firebaseKey).then(showBooks);
     }
 
     // FIXME: ADD CLICK EVENT FOR SHOWING FORM FOR ADDING AN AUTHOR - FIXED
