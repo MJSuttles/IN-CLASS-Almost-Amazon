@@ -26,14 +26,13 @@ const formEvents = () => {
         const patchPayload = { firebaseKey: name };
 
         updateBook(patchPayload).then(() => {
-          getBooks().then(showBooks);
+          getBooks(`${firebase.auth().currentUser.uid}`).then(showBooks);
         });
       });
     }
 
     // TODO: CLICK EVENT FOR EDITING A BOOK
     if (e.target.id.includes('update-book')) {
-      const [, firebaseKey] = e.target.id.split('--');
       const payload = {
         title: document.querySelector('#title').value,
         description: document.querySelector('#description').value,
@@ -41,11 +40,11 @@ const formEvents = () => {
         price: document.querySelector('#price').value,
         author_id: document.querySelector('#author_id').value,
         sale: document.querySelector('#sale').checked,
-        firebaseKey,
+        uid: `${firebase.auth().currentUser.uid}`
       };
 
       updateBook(payload).then(() => {
-        getBooks().then(showBooks);
+        getBooks(`${firebase.auth().currentUser.uid}`).then(showBooks);
       });
     }
 
@@ -61,7 +60,7 @@ const formEvents = () => {
         const patchPayload = { firebaseKey: name };
 
         updateAuthor(patchPayload).then(() => {
-          getAuthors().then(showAuthors);
+          getAuthors(`${firebase.auth().currentUser.uid}`).then(showAuthors);
         });
       });
     }
@@ -76,7 +75,7 @@ const formEvents = () => {
         firebaseKey,
       };
       updateAuthor(payload).then(() => {
-        getAuthors().then(showAuthors);
+        getAuthors(`${firebase.auth().currentUser.uid}`).then(showAuthors);
       });
     }
   });

@@ -22,7 +22,7 @@ const domEvents = () => {
         const [, firebaseKey] = e.target.id.split('--');
 
         deleteBook(firebaseKey).then(() => {
-          getBooks().then(showBooks);
+          getBooks(`${firebase.auth().currentUser.uid}`).then(showBooks);
         });
       }
     }
@@ -54,7 +54,7 @@ const domEvents = () => {
         const [, firebaseKey] = e.target.id.split('--');
 
         deleteAuthorBooksRelationship(firebaseKey).then(() => {
-          getAuthors().then(showAuthors);
+          getAuthors(`${firebase.auth().currentUser.uid}`).then(showAuthors);
         });
       }
     }
