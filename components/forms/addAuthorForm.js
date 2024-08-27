@@ -18,6 +18,12 @@ const addAuthorForm = (item = {}) => {
         <input type="email" class="form-control" id="email" aria-describedby="Email" placeholder="Enter Email" required>
         <p class="card-text bold">${item.favorite ? '<span class="badge bg-danger"><i class="fa fa-heart" aria-hidden="true"></i></span>' : ''}</p>
         </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="favorite">
+        <label class="form-check-label" for="flexCheckDefault">
+        Favorite
+        </label>
+      </div>  
       <button type="submit" class="btn btn-primary mt-3">Submit Author</button>
     </form>`;
 
