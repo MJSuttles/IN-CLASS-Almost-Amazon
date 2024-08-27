@@ -1,4 +1,5 @@
 /* eslint-disable import/no-duplicates */
+import firebase from 'firebase';
 import { signOut } from '../utils/auth';
 import { showBooks } from '../pages/books';
 import { getBooks } from '../api/bookData';
@@ -16,16 +17,16 @@ const navigationEvents = () => {
   // TODO: BOOKS ON SALE
   document.querySelector('#sale-books').addEventListener('click', () => {
     // booksOnSale().then((books) => (showBooks(books)));
-    booksOnSale().then(showBooks);
+    booksOnSale(`${firebase.auth().currentUser.uid}`).then(showBooks);
   });
 
   document.querySelector('#favorite-authors').addEventListener('click', () => {
-    favoriteAuthors().then(showAuthors);
+    favoriteAuthors(`${firebase.auth().currentUser.uid}`).then(showAuthors);
   });
 
   // TODO: ALL BOOKS
   document.querySelector('#all-books').addEventListener('click', () => {
-    getBooks().then(showBooks);
+    getBooks(`${firebase.auth().currentUser.uid}`).then(showBooks);
   });
 
   // // TODO: CREATE CLICK EVENT TO CAPTURE THE CLICK ON THE 'VIEW-AUTHOR-BTN' THAT IS IN THE AUTHOR CARD
@@ -39,7 +40,7 @@ const navigationEvents = () => {
   // 2. Convert the response to an array because that is what the makeAuthors function is expecting
   // 3. If the array is empty because there are no authors, make sure to use the emptyAuthor function
   document.querySelector('#authors').addEventListener('click', () => {
-    getAuthors().then(showAuthors);
+    getAuthors(`${firebase.auth().currentUser.uid}`).then(showAuthors);
   });
 
   // STRETCH: SEARCH

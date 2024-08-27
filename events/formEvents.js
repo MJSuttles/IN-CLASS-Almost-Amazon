@@ -1,4 +1,5 @@
 /* eslint-disable import/no-duplicates */
+import firebase from 'firebase';
 import { createAuthor, getAuthors, updateAuthor } from '../api/authorData';
 import { createBook } from '../api/bookData';
 import { updateBook } from '../api/bookData';
@@ -18,6 +19,7 @@ const formEvents = () => {
         price: document.querySelector('#price').value,
         author_id: document.querySelector('#author_id').value,
         sale: document.querySelector('#sale').checked,
+        uid: `${firebase.auth().currentUser.uid}`
       };
 
       createBook(payload).then(({ name }) => {
@@ -53,6 +55,7 @@ const formEvents = () => {
         first_name: document.querySelector('#first_name').value,
         last_name: document.querySelector('#last_name').value,
         email: document.querySelector('#email').value,
+        // uid:
       };
       createAuthor(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
