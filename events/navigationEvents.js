@@ -6,7 +6,7 @@ import { getBooks } from '../api/bookData';
 import { booksOnSale } from '../api/bookData';
 import { favoriteAuthors } from '../api/authorData';
 import { getAuthors } from '../api/authorData';
-import { showAuthors } from '../pages/authors';
+import { emptyAuthors, showAuthors } from '../pages/authors';
 
 // navigation events
 const navigationEvents = () => {
@@ -29,18 +29,23 @@ const navigationEvents = () => {
     getBooks(`${firebase.auth().currentUser.uid}`).then(showBooks);
   });
 
-  // // TODO: CREATE CLICK EVENT TO CAPTURE THE CLICK ON THE 'VIEW-AUTHOR-BTN' THAT IS IN THE AUTHOR CARD
-  // document.querySelector('view-author-btn').addEventListener('click', () => {
-  //   getAuthors().then(showAuthors);
-  // });
-
   // ALL AUTHORS
   // FIXME: STUDENTS Create an event listener for the Authors
   // 1. When a user clicks the authors link, make a call to firebase to get all authors
   // 2. Convert the response to an array because that is what the makeAuthors function is expecting
   // 3. If the array is empty because there are no authors, make sure to use the emptyAuthor function
+  // document.querySelector('#authors').addEventListener('click', () => {
+  //   getAuthors(`${firebase.auth().currentUser.uid}`).then(showAuthors);
+  // });
+
   document.querySelector('#authors').addEventListener('click', () => {
-    getAuthors(`${firebase.auth().currentUser.uid}`).then(showAuthors);
+    getAuthors(`${firebase.auth().currentUser.uid}`).then((authors) => {
+      if (authors.lenth === 0) {
+        emptyAuthors();
+      } else {
+        showAuthors(authors);
+      }
+    });
   });
 
   // STRETCH: SEARCH
