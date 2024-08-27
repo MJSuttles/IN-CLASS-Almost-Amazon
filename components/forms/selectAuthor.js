@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 import { getAuthors } from '../../api/authorData';
 import renderToDOM from '../../utils/renderToDom';
 
@@ -6,7 +7,7 @@ const selectAuthor = (authorId) => {
     <select class="form-control" id="author_id" required>
     <option value="">Select an Author</option>`;
 
-  getAuthors().then((authorsArray) => {
+  getAuthors(`${firebase.auth().currentUser.uid}`).then((authorsArray) => {
     authorsArray.forEach((author) => {
       domString += `
           <option 

@@ -1,4 +1,5 @@
 /* eslint-disable import/no-duplicates */
+import firebase from 'firebase';
 import { deleteBook } from '../api/bookData';
 import { getBooks } from '../api/bookData';
 import { showBooks } from '../pages/books';
@@ -28,7 +29,7 @@ const domEvents = () => {
 
     // TODO: CLICK EVENT FOR SHOWING FORM FOR ADDING A BOOK
     if (e.target.id.includes('add-book-btn')) {
-      addBookForm();
+      addBookForm(`${firebase.auth().currentUser.uid}`);
     }
 
     // TODO: CLICK EVENT EDITING/UPDATING A BOOK
@@ -67,7 +68,7 @@ const domEvents = () => {
 
     // FIXME: ADD CLICK EVENT FOR SHOWING FORM FOR ADDING AN AUTHOR - FIXED
     if (e.target.id.includes('add-author-btn')) {
-      addAuthorForm();
+      addAuthorForm(`${firebase.auth().currentUser.uid}`);
     }
 
     // FIXME: ADD CLICK EVENT FOR EDITING AN AUTHOR - FIXED
