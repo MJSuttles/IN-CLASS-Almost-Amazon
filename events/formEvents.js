@@ -55,7 +55,7 @@ const formEvents = () => {
         first_name: document.querySelector('#first_name').value,
         last_name: document.querySelector('#last_name').value,
         email: document.querySelector('#email').value,
-        // uid:
+        uid: `${firebase.auth().currentUser.uid}`
       };
       createAuthor(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
