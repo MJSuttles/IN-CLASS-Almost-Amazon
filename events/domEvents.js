@@ -72,7 +72,7 @@ const domEvents = () => {
     }
 
     // FIXME: ADD CLICK EVENT FOR EDITING AN AUTHOR - FIXED
-    if (e.target.id.includes('update-author-button')) {
+    if (e.target.id.includes('update-author')) {
       const [, firebaseKey] = e.target.id.split('--');
 
       getSingleAuthor(firebaseKey).then((bookObj) => addAuthorForm(bookObj));
