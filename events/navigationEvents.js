@@ -14,23 +14,24 @@ const navigationEvents = () => {
   document.querySelector('#logout-button')
     .addEventListener('click', signOut);
 
-  // TODO: BOOKS ON SALE
+  // BOOKS ON SALE
   document.querySelector('#sale-books').addEventListener('click', () => {
     // booksOnSale().then((books) => (showBooks(books)));
     booksOnSale(`${firebase.auth().currentUser.uid}`).then(showBooks);
   });
 
+  // FAVORITE AUTHORS
   document.querySelector('#favorite-authors').addEventListener('click', () => {
     favoriteAuthors(`${firebase.auth().currentUser.uid}`).then(showAuthors);
   });
 
-  // TODO: ALL BOOKS
+  // ALL BOOKS
   document.querySelector('#all-books').addEventListener('click', () => {
     getBooks(`${firebase.auth().currentUser.uid}`).then(showBooks);
   });
 
   // ALL AUTHORS
-  // FIXME: STUDENTS Create an event listener for the Authors
+  // STUDENTS Create an event listener for the Authors
   // 1. When a user clicks the authors link, make a call to firebase to get all authors
   // 2. Convert the response to an array because that is what the makeAuthors function is expecting
   // 3. If the array is empty because there are no authors, make sure to use the emptyAuthor function
@@ -40,7 +41,7 @@ const navigationEvents = () => {
 
   document.querySelector('#authors').addEventListener('click', () => {
     getAuthors(`${firebase.auth().currentUser.uid}`).then((authors) => {
-      if (authors.lenth === 0) {
+      if (authors.length === 0) {
         emptyAuthors();
       } else {
         showAuthors(authors);

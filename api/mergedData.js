@@ -3,7 +3,7 @@
 import { getSingleAuthor, deleteSingleAuthor, getAuthorBooks } from './authorData';
 import { deleteBook, getSingleBook } from './bookData';
 
-// TODO: Get datea for viewBook
+// GET DATA FOR VIEWBOOK
 const getBookDetails = (firebaseKey) => new Promise((resolve, reject) => {
   // GET SINGLE BOOK
   getSingleBook(firebaseKey).then((bookObject) => { // returns single book object
@@ -12,6 +12,7 @@ const getBookDetails = (firebaseKey) => new Promise((resolve, reject) => {
   }).catch(reject);
 });
 
+// FUNCTION TO DELETE BOOK PRIOR TO DELETING AUTHOR
 const deleteAuthorBooksRelationship = (firebaseKey) => new Promise((resolve, reject) => {
   getAuthorBooks(firebaseKey).then((authorBooksArray) => {
     const deleteBookPromises = authorBooksArray.map((book) => deleteBook(book.firebaseKey));
