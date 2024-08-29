@@ -1,14 +1,11 @@
 /* eslint-disable import/no-duplicates */
 import firebase from 'firebase';
-import { deleteBook } from '../api/bookData';
-import { getBooks } from '../api/bookData';
+import { deleteBook, getBooks, getSingleBook } from '../api/bookData';
 import { showBooks } from '../pages/books';
 import addBookForm from '../components/forms/addBookForm';
-import { getSingleBook } from '../api/bookData';
 import addAuthorForm from '../components/forms/addAuthorForm';
-import { getAuthorBooks, getSingleAuthor } from '../api/authorData';
+import { getAuthorBooks, getSingleAuthor, getAuthors } from '../api/authorData';
 import { showAuthors } from '../pages/authors';
-import { getAuthors } from '../api/authorData';
 import { getBookDetails, deleteAuthorBooksRelationship } from '../api/mergedData';
 import viewBook from '../pages/viewBook';
 
