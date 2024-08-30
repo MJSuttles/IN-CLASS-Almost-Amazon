@@ -1,9 +1,7 @@
 /* eslint-disable import/no-duplicates */
 import firebase from 'firebase';
 import { createAuthor, getAuthors, updateAuthor } from '../api/authorData';
-import { createBook } from '../api/bookData';
-import { updateBook } from '../api/bookData';
-import { getBooks } from '../api/bookData';
+import { createBook, updateBook, getBooks } from '../api/bookData';
 import { showAuthors } from '../pages/authors';
 import { showBooks } from '../pages/books';
 
