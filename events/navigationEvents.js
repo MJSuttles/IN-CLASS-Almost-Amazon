@@ -2,10 +2,8 @@
 import firebase from 'firebase';
 import { signOut } from '../utils/auth';
 import { showBooks } from '../pages/books';
-import { getBooks } from '../api/bookData';
-import { booksOnSale } from '../api/bookData';
-import { favoriteAuthors } from '../api/authorData';
-import { getAuthors } from '../api/authorData';
+import { getBooks, booksOnSale } from '../api/bookData';
+import { favoriteAuthors, getAuthors } from '../api/authorData';
 import { emptyAuthors, showAuthors } from '../pages/authors';
 
 // navigation events
